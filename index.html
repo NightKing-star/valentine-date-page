@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Go out with me?</title>
+<link rel="stylesheet" href="valentine.css" />
+</head>
+<body>
+
+<div class="phone">
+
+  <!-- progress bar -->
+  <div class="progress" id="progress">
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <!-- STEP 1: Ask -->
+  <section class="step is-active" id="step-ask">
+    <div class="bears">
+      <span class="heart heart-1">💗</span>
+      <span class="heart heart-2">💗</span>
+      <div class="bear bear-white">🐻‍❄️</div>
+      <div class="bear bear-brown">🐻</div>
+    </div>
+    <h1>Will you go out with me?</h1>
+    <p class="sub">There is only one right answer.</p>
+    <div class="choices">
+      <button class="btn btn-yes" id="btn-yes">Yes!</button>
+      <button class="btn btn-no" id="btn-no">No</button>
+    </div>
+  </section>
+
+  <!-- STEP 2: Celebration -->
+  <section class="step" id="step-yaas">
+    <div class="yaas-wrap">
+      <div class="bubble">YAAS!</div>
+      <div class="bear bear-white big">🐻‍❄️</div>
+    </div>
+  </section>
+
+  <!-- STEP 3: When are you free -->
+  <section class="step" id="step-when">
+    <button class="back" data-back>← back</button>
+    <div class="bear bear-brown mid">🐻</div>
+    <h2>When are you free?</h2>
+    <div role="radiogroup" class="pills" id="day-group">
+      <button role="radio" aria-checked="false" class="pill" data-iso="2026-08-07"><span>Fri</span></button>
+      <button role="radio" aria-checked="false" class="pill" data-iso="2026-08-08"><span>Sat</span></button>
+      <button role="radio" aria-checked="false" class="pill" data-iso="2026-08-09"><span>Sun</span></button>
+    </div>
+    <button class="btn btn-yes next" id="next-when" disabled>Next</button>
+  </section>
+
+  <!-- STEP 4: Where are we going -->
+  <section class="step" id="step-where">
+    <button class="back" data-back>← back</button>
+    <div class="bear bear-brown mid">🐻</div>
+    <h2>And where are we going?</h2>
+    <div class="grid" id="where-group">
+      <button class="card" data-place="Coffee" data-icon="☕">
+        <span class="icon">☕</span>
+        <strong>Coffee</strong>
+        <small>the good little place</small>
+      </button>
+      <button class="card" data-place="Dinner" data-icon="🍽️">
+        <span class="icon">🍽️</span>
+        <strong>Dinner</strong>
+        <small>somewhere with candles</small>
+      </button>
+      <button class="card" data-place="Movie night" data-icon="🍿">
+        <span class="icon">🍿</span>
+        <strong>Movie night</strong>
+        <small>you pick, I'll allow it</small>
+      </button>
+      <button class="card" data-place="A long walk" data-icon="🌙">
+        <span class="icon">🌙</span>
+        <strong>A long walk</strong>
+        <small>until it gets cold</small>
+      </button>
+    </div>
+  </section>
+
+  <!-- STEP 5: Date pass -->
+  <section class="step" id="step-pass">
+    <h2 class="pass-title">It's a date!</h2>
+    <div class="ticket">
+      <div class="ticket-left">
+        <div class="ticket-bear">🐻‍❄️</div>
+        <div class="admit">ADMIT TWO</div>
+        <div class="ticket-no">no. 5264</div>
+      </div>
+      <div class="ticket-right">
+        <div class="field"><span>WHEN</span><strong id="pass-when">—</strong></div>
+        <div class="field"><span>TIME</span><strong>Evening · 7:00 pm</strong></div>
+        <div class="field"><span>WHERE</span><strong id="pass-where">—</strong></div>
+        <div class="field"><span>BRING</span><strong>Flowers</strong></div>
+        <div class="field"><span>THEN</span><strong>Stargazing</strong></div>
+      </div>
+    </div>
+    <div class="countdown">STARTS IN <strong id="countdown">—</strong></div>
+    <div class="pass-actions">
+      <button class="btn btn-yes" id="btn-calendar">Add to calendar</button>
+      <button class="btn btn-ghost" id="btn-share">Share</button>
+    </div>
+  </section>
+
+  <!-- STEP 6: Calendar confirmation -->
+  <section class="step" id="step-calendar">
+    <p class="cal-label">ADDING TO YOUR CALENDAR</p>
+    <h2 class="cal-month" id="cal-month">—</h2>
+    <div class="calendar" id="calendar-grid"></div>
+    <p class="cal-note">It's in. <strong id="cal-date-text">—</strong><br />I'll be counting down with you.</p>
+    <button class="btn btn-yes" id="btn-done">See you there</button>
+  </section>
+
+</div>
+
+<script src="valentine.js"></script>
+</body>
+</html>

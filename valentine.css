@@ -1,0 +1,352 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 30% 20%, #3a1230, #120a16 70%);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #f4e9f2;
+  padding: 24px;
+}
+
+.phone {
+  position: relative;
+  width: 360px;
+  min-height: 640px;
+  background: linear-gradient(180deg, #241026, #1a0e20);
+  border-radius: 32px;
+  box-shadow: 0 0 60px rgba(255, 100, 170, 0.25), 0 20px 60px rgba(0,0,0,.6);
+  padding: 28px 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* progress bar */
+.progress {
+  display: flex;
+  gap: 6px;
+  width: 100%;
+  margin-bottom: 28px;
+}
+.progress span {
+  flex: 1;
+  height: 4px;
+  border-radius: 4px;
+  background: rgba(255,255,255,.12);
+  overflow: hidden;
+}
+.progress span.filled {
+  background: linear-gradient(90deg, #ffb199, #ff5f9e);
+}
+
+/* step visibility */
+.step {
+  display: none;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  animation: rise .5s backwards;
+}
+.step.is-active {
+  display: flex;
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.back {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  color: #c9a6c4;
+  font-size: 14px;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+/* bears + hearts */
+.bears {
+  position: relative;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+.bear {
+  font-size: 90px;
+  line-height: 1;
+  filter: drop-shadow(0 6px 14px rgba(0,0,0,.5));
+}
+.bear.mid { font-size: 64px; margin-bottom: 8px; }
+.bear.big { font-size: 110px; }
+.bear-brown { margin-left: -20px; }
+.heart {
+  position: absolute;
+  font-size: 22px;
+  opacity: .85;
+  animation: float 3s ease-in-out infinite;
+}
+.heart-1 { top: 6px; left: 44%; animation-delay: 0s; }
+.heart-2 { top: 22px; left: 58%; animation-delay: .4s; font-size: 16px; }
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+h1 {
+  font-family: "Brush Script MT", cursive;
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 1.15;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #ffd1e6, #ff8fc0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+h2 {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 4px 0 20px;
+  color: #f8e6f3;
+}
+.sub {
+  color: #b79ab3;
+  font-size: 14px;
+  margin-bottom: 26px;
+}
+
+/* yaas step */
+.yaas-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 0;
+}
+.bubble {
+  background: #fff;
+  color: #1a0e20;
+  font-weight: 800;
+  font-style: italic;
+  font-size: 26px;
+  padding: 10px 22px;
+  border-radius: 18px;
+  border: 3px solid #1a0e20;
+  transform: rotate(-4deg);
+  margin-bottom: 8px;
+}
+
+/* buttons */
+.btn {
+  border: none;
+  border-radius: 999px;
+  padding: 14px 30px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .15s ease;
+}
+.btn:active { transform: scale(.96); }
+.btn-yes {
+  background: linear-gradient(90deg, #ff9ac1, #ff5f9e);
+  color: #2a0e20;
+  box-shadow: 0 8px 20px rgba(255, 95, 158, .35);
+}
+.btn-no {
+  background: rgba(255,255,255,.08);
+  color: #eadff0;
+  position: relative;
+}
+.btn-ghost {
+  background: transparent;
+  border: 1.5px solid rgba(255,150,190,.6);
+  color: #ffb8d9;
+}
+.btn.next {
+  margin-top: 28px;
+}
+.btn:disabled {
+  opacity: .4;
+  cursor: not-allowed;
+}
+.choices {
+  display: flex;
+  gap: 14px;
+}
+
+/* day pills */
+.pills {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.pill {
+  padding: 12px 18px;
+  border-radius: 14px;
+  border: 1.5px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.04);
+  color: #eadff0;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+.pill[aria-checked="true"] {
+  border-color: #ff5f9e;
+  background: rgba(255,95,158,.18);
+  color: #ffd6e8;
+}
+
+/* where grid */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  width: 100%;
+}
+.card {
+  background: rgba(255,255,255,.04);
+  border: 1.5px solid rgba(255,255,255,.1);
+  border-radius: 16px;
+  padding: 16px 14px;
+  text-align: left;
+  color: #eadff0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.card .icon { font-size: 22px; margin-bottom: 4px; }
+.card strong { font-size: 15px; }
+.card small { color: #b79ab3; font-size: 12px; }
+.card.selected {
+  border-color: #ff5f9e;
+  background: rgba(255,95,158,.14);
+}
+
+/* ticket / date pass */
+.pass-title {
+  font-family: "Brush Script MT", cursive;
+  font-size: 32px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  color: #ffd1e6;
+}
+.ticket {
+  display: flex;
+  width: 100%;
+  background: #fbeaf1;
+  color: #2a0e20;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+.ticket-left {
+  width: 40%;
+  background: #ffd7e6;
+  padding: 16px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-right: 2px dashed #f2a9c6;
+  gap: 4px;
+}
+.ticket-bear { font-size: 34px; }
+.admit { font-weight: 800; font-size: 12px; letter-spacing: .5px; }
+.ticket-no { font-size: 10px; color: #a05c78; }
+.ticket-right {
+  flex: 1;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+.field span {
+  display: block;
+  font-size: 10px;
+  letter-spacing: .5px;
+  color: #a05c78;
+  font-weight: 700;
+}
+.field strong { font-size: 13px; }
+.countdown {
+  font-size: 13px;
+  color: #d9b9d1;
+  letter-spacing: .5px;
+  margin-bottom: 20px;
+}
+.countdown strong {
+  color: #ffd166;
+  font-variant-numeric: tabular-nums;
+}
+.pass-actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* calendar */
+.cal-label {
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #b79ab3;
+  margin-bottom: 4px;
+}
+.cal-month {
+  font-family: "Brush Script MT", cursive;
+  font-size: 28px;
+  font-weight: 400;
+  color: #ffd1e6;
+  margin-bottom: 16px;
+}
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  width: 100%;
+  margin-bottom: 18px;
+}
+.calendar .dow {
+  font-size: 11px;
+  color: #b79ab3;
+  padding-bottom: 4px;
+}
+.calendar .day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: rgba(255,255,255,.04);
+  font-size: 13px;
+  color: #eadff0;
+}
+.calendar .day.empty { background: transparent; }
+.calendar .day.picked {
+  background: linear-gradient(90deg, #ff9ac1, #ff5f9e);
+  color: #2a0e20;
+  font-weight: 800;
+}
+.cal-note {
+  font-size: 13px;
+  color: #cbb2c7;
+  line-height: 1.5;
+  margin-bottom: 22px;
+}
+.cal-note strong { color: #ffd6e8; }
+
+@media (max-width: 400px) {
+  .phone { width: 100%; }
+}
